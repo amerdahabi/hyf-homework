@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="homework-week3.css">
+    <title>Homework week 3 Form</title>
+</head>
+
+<body>
+    <h1>Form</h1>
+    <form id="form1" method="post" action="success.html">
+        <div class="pc-tab">
+            <input checked="checked" id="tab1" type="radio" name="pct" />
+            <input id="tab2" type="radio" name="pct" />
+            <input id="tab3" type="radio" name="pct" />
+            <input id="tab4" type="radio" name="pct" />
+            <section>
+                <div class="tab1">
+                    <h2>First page</h2>
+
+                    <div class="inputs">
+
+                        <!-- add additional html form inputs here...
+                        remember that the required ones each must have the class="input-required" -->
+
+                        <!-- Example (can be replaced by your own...) :  -->
+
+                        <label for="firstname">FIRSTNAME*</label>
+                        <input type="text" class="input-required" id="firstname" name="firstname" required>
+
+                        <label for="lastname">LASTNAME*</label>
+                        <input type="text" class="input-required" id="lastname" name="lastname" required>
+
+
+                        <label for="country">Country*</label>
+                        <select id="country" name="country" class="input-required" required>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Åland Islands">Åland Islands</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                        </select><br>
+
+                        <label for="postcode">POST CODE*</label>
+                        <input type="text" maxlength="4" pattern="[0-9]{4}" class="input-required" id="postcode"
+                            name="postcode" required>
+
+                        <label for="street-address">STREET ADDRESS*</label>
+                        <input type="text" class="input-required" id="street-address" name="street-address" required>
+
+                        <label for="toggle-1">Shipping address</label>
+                        <input type="checkbox" id="toggle-1">
+
+                        <div class="shipping-address">
+                            <label for="firstname">FIRSTNAME*</label>
+                            <input type="text" id="firstname" name="firstname">
+
+                            <label for="lastname">LASTNAME*</label>
+                            <input type="text" id="lastname" name="lastname">
+
+                            <label for="country">Country*</label>
+                            <select id="country" name="country">
+                                <option value="Afghanistan">Afghanistan</option>
+                                <option value="Åland Islands">Åland Islands</option>
+                                <option value="Zimbabwe">Zimbabwe</option>
+                            </select><br>
+
+                            <label for="postcode">POST CODE*</label>
+                            <input type="text" maxlength="4" pattern="[0-9]{4}" id="postcode" name="postcode">
+
+                            <label for="street-address">STREET ADDRESS*</label>
+                            <input type="text" id="street-address" name="street-address">
+                        </div>
+
+                        <label for="textarea">Profile Discription</label> <textarea id="textarea" name="massege"
+                            maxlength="500" placeholder="Write your massege...."></textarea><br>
+                    </div>
+
+                    <label for="tab2" id="label2" class="navigation">Second Tab</label>
+                </div>
+
+                <div class="tab2">
+                    <h2>Second page</h2>
+
+                    <div class="inputs">
+
+                        <!-- add additional html form inputs here...
+                         remember that the required ones each must have the class="input-required" -->
+                        <label for="email">EMAIL*</label>
+                        <input type="email" class="input-required" id="email" name="email" required>
+
+                        <label for="password">PASSWORD*</label>
+                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" name="password"
+                            id="password" class="input-required" required>
+
+                        <label for="re-password">RE-INTER PASSWORD*</label>
+                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" name="password"
+                            id="re-password" class="input-required" required>
+
+                        <label for="phone">PHONE</label>
+                        <input type="text" name="phone" id="phone">
+
+                        <p>I want to sign up for the newsletter</p>
+
+                        <label for="weekly">Send Weekly</label>
+                        <input type="radio" name="newsletter" value="weekly" id="weekly" checked>
+                        <label for="monthly">Send Monthly</label>
+                        <input type="radio" name="newsletter" value="monthly" id="monthly">
+                        <label for="none-news">Don't send me news</label>
+                        <input type="radio" name="newsletter" value="none" id="none-news">
+                    </div>
+
+                    <label for="tab1" class="navigation">First Tab</label>
+                    <label for="tab3" id="label3" class="navigation">Third Tab</label>
+
+                </div>
+
+                <div class="tab3">
+                    <h2>Third page</h2>
+
+                    <div class="inputs">
+
+                        <!-- add additional html form inputs here...
+                         remember that the required ones each must have the class="input-required" -->
+
+                        <p>What kind of items are you interested in offers on?</p>
+
+                        <label for="apparal">Apparal</label>
+                        <input type="checkbox" name="item1" value="apparal" id="apparal">
+
+                        <label for="jewelry">jewelry</label>
+                        <input type="checkbox" name="item2" id="jewelry" id="jewelry">
+
+                        <label for="accessories">Accessories</label>
+                        <input type="checkbox" name="item3" value="accessories" id="accessories">
+
+                        <label for="shoes">Shoes</label>
+                        <input type="checkbox" name="item4" value="shoes" id="shoes">
+
+                        <label for="handbag">Handbag</label>
+                        <input type="checkbox" name="item5" value="handbag" id="handbag">
+
+                        <p>Choose the images that best resemble your style</p>
+
+                        <div class="image-style-container">
+
+                            <label for="image-style1"><img
+                                    src="https://images.hugoboss.com/is/image/boss/hbna50411023_410_100"
+                                    alt="jacket">select</label>
+                            <input type="checkbox" name="select1" id="image-style1">
+
+                            <label for="image-style2"><img
+                                    src="https://images.hugoboss.com/is/image/boss/hbna50411023_410_100"
+                                    alt="jacket">select</label>
+                            <input type="checkbox" name="select2" id="image-style2">
+
+                            <label for="image-style3"><img
+                                    src="https://images.hugoboss.com/is/image/boss/hbna50411023_410_100"
+                                    alt="jacket">select</label>
+                            <input type="checkbox" name="select3" id="image-style3">
+
+                            <label for="image-style4"><img
+                                    src="https://images.hugoboss.com/is/image/boss/hbna50411023_410_100"
+                                    alt="jacket">select</label>
+                            <input type="checkbox" name="select4" id="image-style4">
+
+                            <label for="image-style5"><img
+                                    src="https://images.hugoboss.com/is/image/boss/hbna50411023_410_100"
+                                    alt="jacket">select</label>
+                            <input type="checkbox" name="select5" id="image-style5">
+
+                            <label for="image-style6"><img
+                                    src="https://images.hugoboss.com/is/image/boss/hbna50411023_410_100"
+                                    alt="jacket">select</label>
+                            <input type="checkbox" name="select6" id="image-style6">
+
+                            <label for="image-style7"><img
+                                    src="https://images.hugoboss.com/is/image/boss/hbna50411023_410_100"
+                                    alt="jacket">select</label>
+                            <input type="checkbox" name="select7" id="image-style7">
+
+                            <label for="image-style8"><img
+                                    src="https://images.hugoboss.com/is/image/boss/hbna50411023_410_100"
+                                    alt="jacket">select</label>
+                            <input type="checkbox" name="select8" id="image-style8">
+
+                        </div>
+
+                    </div>
+
+                    <label for="tab2" class="navigation">Second Tab</label>
+                    <label for="tab4" id="label4" class="navigation">Fourth Tab</label>
+                </div>
+
+                <div class="tab4">
+                    <h2>Fourth page</h2>
+
+                    <p>please fill in your payment data</p>
+                    <div class="inputs">
+
+                        <!-- add additional html form inputs here...
+                         remember that the required ones each must have the class="input-required" -->
+                         
+                        <label for="name-on-card">Name on card</label>
+                        <input type="text" name="name-on-card" id="name-on-card" class="input-required" required>
+
+                        <label for="card-type">Card type</label>
+                        <select id="card-type" name="card-type" class="input-required" required>
+                            <option value="master-card">Master Card</option>
+                            <option value="visa-card">Visa Card</option>
+                        </select><br>
+
+                        <label for="card-number">Credit card number</label>
+                        <input type="text" maxlength="16" pattern="^[0-9]{16}$" name="card-number" id="card-number"
+                            class="input-required" required>
+
+                        <label for="expiry-month">Expiry Month</label>
+                        <input type="text" name="expiry-month" id="expiry-month" class="input-required" required>
+
+                        <label for="expiry-year">Expiry Year</label>
+                        <input type="text" name="expiry-year" id="expiry-year" class="input-required" required>
+
+                        <label for="ccv">CCV</label>
+                        <input type="text" maxlength="3" pattern="^[0-9]{3}$" name="ccv" id="ccv" class="input-required"
+                            required>
+                    </div>
+
+                    <label for="tab3" class="navigation">Third Tab</label>
+                    <input type="submit" id="submit">
+                </div>
+            </section>
+        </div>
+    </form>
+    <script src="homework-week3.js"></script>
+
+</body>
+
+</html>
