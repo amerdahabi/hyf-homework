@@ -152,3 +152,39 @@ select option{
     padding: 15px;
     margin: 20px;
 }
+
+.progres-1{
+    width: 25%;
+    background-color: green;
+    padding: 10px ;
+    margin: 10px 0;
+    border: solid 1px gray;
+    border-radius: 3px;
+}
+
+.progres-2{
+    width: 50%;
+    background-color: green;
+    padding: 10px;
+    margin: 10px 0;
+    border: solid 1px gray;
+    border-radius: 3px;
+}
+
+.progres-3{
+    width: 75%;
+    background-color: green;
+    padding: 10px;
+    margin: 10px 0;
+    border: solid 1px gray;
+    border-radius: 3px;
+}
+
+.progres-4{
+    width: 100%;
+    background-color: green;
+    padding: 10px;
+    margin: 10px 0;
+    border: solid 1px gray;
+    border-radius: 3px;
+}
