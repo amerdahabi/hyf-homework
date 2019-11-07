@@ -31,5 +31,11 @@ let housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
 console.log(housePrice);
 //step three completed
 
-//step four in progress ...
+//step four 
+let firstWords = ["Easy ", "Nice ", "Big ", "Small ", "Strong ", "Fast ", "Awsome ", "Buetiful ", "Long ", "Winner " ]; // just very random names
+let secondWords = ["Tech", "IT", "BigData", "JavaScript", "HTML", "CSS", "Mac", "JAVA", "Browser", "Data"]; // just very random names
+let startUpName = firstWords[Math.floor((Math.random() * 10) + 0)] + secondWords[Math.floor((Math.random() * 10) + 0)];
+let nameLenght = startUpName.length;
 
+console.log('"' + startUpName + '"' + " contain " + nameLenght + " characters");
+//step four completed
