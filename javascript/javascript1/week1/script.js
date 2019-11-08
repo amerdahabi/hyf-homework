@@ -20,15 +20,29 @@ if (souldShowResaultInDogYears) {
 console.log( `Your dog will be ${dogYear} ${souldShowResaultInDogYears ? "dog" : "human"} years old in ${dogYearFuture}.`);
 //step two completed
 
-//step three
-const wideMeter = 5;
-const deebMeter = 11;
-const highMeter = 8;
-let volumeInMeters = wideMeter * deebMeter * highMeter;
-const gardenSizeInM2 = 70;
-let housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
 
-console.log(housePrice);
+//step three fixed
+let volumeInMetersFirst = 5 * 8 * 11;
+let gardenSizeInM2First = 70;
+let housePriceFirst = 1000000;
+let housePriceShouldBeFirst = volumeInMetersFirst * 2.5 * 1000 + gardenSizeInM2First * 300;
+let savePriceFirst = housePriceFirst - housePriceShouldBeFirst;
+if (housePriceFirst > housePriceShouldBeFirst){
+    console.log("I guess you have to reconsider your choice because the value of the is " + housePriceShouldBeFirst);
+}
+else {console.log("I think it's a good choice to get it, its value on market " + housePriceShouldBeFirst + " and you will save around " + savePriceFirst + ".");
+} //price for the first peron end.
+
+let volumeInMetersSecond = 8 * 10 * 10;
+let gardenSizeInM2Second = 100;
+let housePriceSecond = 2500000;
+let housePriceShouldBeSecond = volumeInMetersSecond * 2.5 * 1000 + gardenSizeInM2Second * 300;
+let savePriceSecond = housePriceSecond - housePriceShouldBeSecond;
+if (housePriceSecond > housePriceShouldBeSecond){
+    console.log("I guess you have to reconsider your choice because the value of the is " + housePriceShouldBeSecond);
+}
+else {console.log("I think it's a good choice to get it, its value on market " + housePriceShouldBeSecond + " and you will save around " + savePriceSecond + ".");
+} //price for the second peron end.
 //step three completed
 
 //step four 
