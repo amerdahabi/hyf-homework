@@ -50,4 +50,46 @@ function clothesToWear(degree) {
 
 console.log(clothesToWear(30));
 
+// addStudent to function
+
+const class07Students = [];
+function addStudentToClass(studentName) {
+    // You write code here
+    if (class07Students.length >= 5 && (studentName.toLowerCase() === 'queen')) {
+        class07Students.push(studentName);
+    }
+    else if (!studentName) {
+        console.log('Please enter your name');
+    }
+    else if (class07Students.length > 5) {
+        console.log("This class is full, try another one");
+    }
+    else if (class07Students.includes(studentName) === true) {
+        console.log('You are allready in the class');
+    }
+    else if (class07Students.length <= 5) {
+        class07Students.push(studentName);
+    }
+}
+
+function getNumberOfStudents() {
+    // You write code here
+    let calssStudents = class07Students.length;
+    console.log(`We are ${calssStudents} students `);
+}
+
+addStudentToClass('Amer1');
+addStudentToClass('Amer1');
+addStudentToClass('Amer2');
+addStudentToClass('Amer3');
+addStudentToClass('Amer4');
+addStudentToClass('Amer5');
+addStudentToClass('Amer6');
+addStudentToClass('Amer7');
+addStudentToClass('');
+addStudentToClass('QUEEN');
+
+getNumberOfStudents();
+
+
 // to be continued ... 
