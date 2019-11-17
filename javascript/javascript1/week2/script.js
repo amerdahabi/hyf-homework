@@ -3,7 +3,7 @@
 
 function getFullName(firstname, lastname, useFormalName) {
 
-    if ((firstname || lastname) && useFormalName) {
+    if ((firstname !== '' || lastname !== '') && useFormalName) {
         return "Lord " + " " + firstname + " " + lastname;
     }
     else if (!firstname && !lastname) {
