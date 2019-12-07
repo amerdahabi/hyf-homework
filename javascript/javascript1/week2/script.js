@@ -1,6 +1,6 @@
 
 //Flight booking fullname function, in this exercise 
-
+// exersice 1
 function getFullName(firstname, lastname, useFormalName) {
 
     if ((firstname !== '' || lastname !== '') && useFormalName) {
