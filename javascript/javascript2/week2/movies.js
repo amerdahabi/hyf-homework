@@ -44586,14 +44586,23 @@ const movies = [
   }
 ];
 
+// Create an array of movies containing movies with short title (you define what short means)
+
 const shortTitle = movies.filter(mov => mov.title.length <= 4);
 // console.log(shortTitle);
+
+// Create an array of movie titles with long movie titles
 
 const longTitle = movies.filter(mov => mov.title.length > 35);
 // console.log(longTitle);
 
+// Count the number of movies made between 1980-1989 (including both the years)
+
 const movies80th = movies.filter(mov => (mov.year >= 1980 && mov.year <= 1989));
-// console.log(movies80th); //638 movies
+//  console.log(movies80th); //638 movies
+
+// Create a new array that has an extra key called tag. The tag is based on the rating:
+// Good (>= 7), Average (>= 4 and < 7), Bad (< 4)
 
 let moviesWithTag = movies.map(mov => {
     if (mov.rating >= 7) {
@@ -44605,6 +44614,29 @@ let moviesWithTag = movies.map(mov => {
     }
     return mov;
  });
+// console.log(moviesWithTag);
 
- console.log(moviesWithTag);
+// Using chaining, first filter the movies array to only contain the movies rated higher than 6.
+// Now map the movies array to only the rating of the movies.
+
+let highRatingMovies = movies.filter(mov => mov.rating >= 6)
+// .map(mov => mov.rating);
+// console.log(highRatingMovies);
+
+// Count the total number of movies containing any of following keywords: Surfer, Alien or Benjamin.
+// So if there were 3 movies that contained Surfer, 1 with Alien and 2 with Benjamin,
+// you would return 6. Can you make sure the search is case insensitive?
+
+let moviesWithKeyword = movies.filter(mov => mov.title.toLowerCase().includes("surfer") || mov.title.toLowerCase().includes("alien") || mov.title.toLowerCase().includes("benjamin"));
+let numOfMoveisWithKeyword = moviesWithKeyword.length;
+// console.log(numOfMoveisWithKeyword);
+
+// Create an array of movies where a word in the title is duplicated.
+// Fx "Star Wars: The Clone Wars" the word Wars is duplicated.
+
+let titleDuplicated = movies.filter(mov =>  {
+  let splitTitle = mov.title.split(" ");
+  return new Set(splitTitle).size != splitTitle.length;
+});
+// console.log(titleDuplicated);
 
