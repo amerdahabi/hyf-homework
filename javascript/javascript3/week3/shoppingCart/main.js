@@ -21,21 +21,18 @@ class ShoppingCart {
     // Implement functionality here
     if (!product) {
       return;
-    } else {
-      this.products = this.products.filter(pro => pro.name !== product.name);
-    
     }
+    this.products = this.products.filter(pro => pro.name !== product.name);
   }
 
   searchProduct(productName) {
     // Implement functionality here
     if (!productName) {
       return;
-    } else {
-      this.products = this.products.filter(
-        item => item.name === productName.toLowerCase()
-      );
     }
+    this.products = this.products.filter(
+      item => item.name === productName.toLowerCase()
+    );
   }
 
   getTotal() {
