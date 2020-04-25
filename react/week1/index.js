@@ -7,7 +7,7 @@ function Header() {
   return <h1>This is my app</h1>;
 };
 
-class TodoList extends React.Component {
+class TodoListItem extends React.Component {
   render() {
     return (
       <li>
@@ -17,12 +17,12 @@ class TodoList extends React.Component {
   }
 };
 
-class TodoListMultiple extends React.Component {
+class TodoList extends React.Component {
   render() {
     const multipleTask = this.props.multipleTask;
     const result = multipleTask.map(task => {
       return (
-        <TodoList description={task.description} deadLine={task.deadLine} />
+        <TodoListItem description={task.description} deadLine={task.deadLine} />
       );
     });
     return <ul>{result}</ul>;
@@ -43,7 +43,7 @@ function App() {
   return (
     <div>
       <Header />
-      <TodoListMultiple multipleTask={todoListArray} />
+      <TodoList multipleTask={todoListArray} />
       <Footer />
     </div>
   );
