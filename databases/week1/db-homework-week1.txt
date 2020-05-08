@@ -1,3 +1,4 @@
+
 SELECT count(id)
 FROM task;
 

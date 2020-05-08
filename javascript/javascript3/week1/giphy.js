@@ -19,7 +19,6 @@ function fetchGif(e) {
       console.log(data1);
       getGif(data1);
     });
-}
 
 function getGif(data1) {
   const imagesGif = document.querySelector(".images-gif");
@@ -29,4 +28,3 @@ function getGif(data1) {
     result += `<img class="img" src="${url}" width="150px"/>`;
   });
   imagesGif.innerHTML = result;
-}
