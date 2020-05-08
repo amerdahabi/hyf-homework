@@ -97,8 +97,11 @@ delete from review where id = 3;
 -- Get meals that has a price smaller than a specific price fx 90
 select * from meal where price < 50 ;
 -- Get meals that still has available reservations
-select meal.*, reservation.number_of_guests from meal join reservation ON meal.id = reservation.meal_id
- where `when` > NOW() and reservation.number_of_guests <= meal.max_reservation ;
+select Meal.Id,Meal.Title, Meal.max_reservation ,sum(Reservation.number_of_guests) as total
+from Meal
+inner join Reservation on Reservation.meal_id = Meal.Id
+group by Meal.Id 
+having total < max_reservation;
  -- Get meals that partially match a title. Rød grød med will match the meal with the title Rød grød med fløde
  select * from meal where title like '%kebab%';
  -- Get meals that has been created between two dates
