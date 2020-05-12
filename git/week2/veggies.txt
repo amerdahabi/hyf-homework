@@ -1,5 +1,7 @@
 first l
 sec l
-third l
+fixed locally
 fou l
 fif l
+add locally 1
+add locally 2
