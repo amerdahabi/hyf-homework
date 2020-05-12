@@ -18,9 +18,9 @@ import  {UserContext} from "./user.context";
     }
   
     return <ul>
-        {users.map(user => {
-            return <li key={user.id}>{user.login}</li>
-        })}
+        {users.map(user => 
+             <li key={user.id}>{user.login}</li>
+        )}
     </ul>;
   };
   
