@@ -19,10 +19,7 @@ function fetchGif(e) {
       console.log(data1);
       getGif(data1);
     });
-<<<<<<< Updated upstream
-=======
 };
->>>>>>> Stashed changes
 
 function getGif(data1) {
   const imagesGif = document.querySelector(".images-gif");
@@ -31,9 +28,6 @@ function getGif(data1) {
     const url = a.images.preview_gif.url;
     result += `<img class="img" src="${url}" width="150px"/>`;
   });
-<<<<<<< Updated upstream
   imagesGif.innerHTML = result;
-=======
   imagesGif.innerHTML = result;
 };
->>>>>>> Stashed changes
