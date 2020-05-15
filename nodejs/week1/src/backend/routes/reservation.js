@@ -6,3 +6,4 @@ const response = function(request, response) {
 };
 
 module.exports = response;
+

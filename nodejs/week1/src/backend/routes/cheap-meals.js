@@ -12,5 +12,5 @@ const cheapMeal = function(request, response) {
   response.json(result);
 };
 
-module.exports = cheapMeal;
 
+module.exports = cheapMeal;
