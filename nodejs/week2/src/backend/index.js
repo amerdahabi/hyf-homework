@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const mealArray = require("./data/meals.json");
  
 app.get('/', function (req, res) {
   res.send(`
@@ -11,14 +10,11 @@ app.get('/', function (req, res) {
 });
 
 const mealsRouter = require("./routes/meals.js");
-app.get('/meals', mealsRouter);
+const reservationsRouter = require("./routes/reservations.js");
+const reviewsRouter = require("./routes/reviews.js")
 
-const reservations = require("./routes/reservations.js");
-app.get('/reservations', reservations);
-
-app.get('/meal/:id', function(req, res) {
-  const id = req.query.id;
-  
-})
+app.use('/meals', mealsRouter);
+app.use('/reservations', reservationsRouter);
+app.use('/reviews', reviewsRouter)
 
 app.listen(3000)
