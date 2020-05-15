@@ -9,7 +9,7 @@ const getMeal = function(request, response) {
     return mealItem;
   });
   const random = Math.floor(Math.random() * mealsArray.length);
-  response.json(meal[random]);
+  return response.json(meal[random]);
 };
 
 module.exports = getMeal;
