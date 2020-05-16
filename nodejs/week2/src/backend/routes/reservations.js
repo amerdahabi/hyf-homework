@@ -5,11 +5,18 @@ const router = express.Router();
 const reservationRoute = function(req, res) {
   const idString = req.params.id;
   const id = parseInt(idString);
-  if (id) {
-    const reservationId = reservationArray.filter(item => item.id === id);
-    res.json(reservationId);
-  } else {
+  const reservationId = reservationArray.filter(item => item.id === id);
+
+  if (req.originalUrl === "/reservations") {
     res.json(reservationArray);
+  } else if (id) {
+    if (reservationId.length === 0) {
+      res.send("Reservation not found");
+    } else {
+      res.json(reservationId);
+    }
+  } else {
+    res.send("Parameter not found");
   }
 };
 
