@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
  
+
 app.get('/', function (req, res) {
   res.send(`
   <body>
@@ -27,4 +28,5 @@ app.get('/reservations', reservations);
 const reservation = require("./routes/reservation.js");
 app.get('/reservation', reservation);
 
-app.listen(3000)
+const port = 3000;
+app.listen(port, () => console.log(`Server runing on port ${port}`));

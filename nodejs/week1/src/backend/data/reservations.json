@@ -11,6 +11,7 @@
       "email": "ben@hughes.dk",
       "mealId": 2
     },
+    
     {
       "id": 3,
       "name": "Hughes",
@@ -18,3 +19,4 @@
       "mealId": 3
     }
   ]
+  

@@ -1,0 +1,10 @@
+first l
+sec l
+fixed locally
+fou l
+fif l
+add locally 1
+add locally 2
+edited remotlly 1 
+fou l
+fif l
