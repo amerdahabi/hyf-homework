@@ -1,101 +1,113 @@
 const express = require("express");
-const app = express();
 const router = express.Router();
 const knex = require("../database");
 
-// Get all meals
-router.get("/", async (request, response) => {
-  try {
-    // knex syntax for selecting things. Look up the documentation for knex for further info
-    const titles = await knex("meals").select("*");
-    response.json(titles);
-  } catch (error) {
-    throw error;
-  }
-});
-
 // Get meal by ID
-router.get("/:id", async (request, response) => {
+router.get("/:id", async (req, res) => {
   try {
     const titles = await knex("meals")
-      .select("title", "price")
-      .where(request.params);
-    response.json(titles);
+      .select("id", "title", "description", "price", "max_reservation")
+      .where(req.params);
+    res.json(titles);
   } catch (error) {
     throw error;
   }
 });
 
 // Add new meal
-router.post("/", async (request, response) => {
+router.post("/", async (req, res) => {
   try {
     const addMeal = await knex("meals").insert({
-      title: request.body.title,
-      description: request.body.description,
-      location: request.body.location,
-      max_reservation: request.body.max_reservation,
-      price: request.body.price,
-      created_date: request.body.created_date,
+      title: req.body.title,
+      description: req.body.description,
+      location: req.body.location,
+      max_reservation: req.body.max_reservation,
+      price: req.body.price,
+      created_date: req.body.created_date,
     });
-    response.json(addMeal);
+    res.json(addMeal);
   } catch (error) {
     throw error;
   }
 });
 
 // Update meal by ID
-router.put("/:id", async (request, response) => {
+router.put("/:id", async (req, res) => {
   try {
     const updateMeal = await knex("meals")
       .where({
-        id: request.params.id,
+        id: req.params.id,
       })
       .update({
-        title: request.body.title,
-        description: request.body.description,
-        location: request.body.location,
-        max_reservation: request.body.max_reservation,
-        price: request.body.price,
-        created_date: request.body.created_date,
+        title: req.body.title,
+        description: req.body.description,
+        location: req.body.location,
+        max_reservation: req.body.max_reservation,
+        price: req.body.price,
+        created_date: req.body.created_date,
       });
-    response.json(updateMeal);
+    res.json(updateMeal);
   } catch (error) {
     throw error;
   }
 });
 
 // Delete meal by ID
-router.delete("/:id", async (request, response) => {
-  const id = request.params.id;
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
   try {
     const deleteMeal = await knex("meals")
       .where({
-        id: request.params.id,
+        id: req.params.id,
       })
       .del();
-    response.json(`Meal with the ID '${id}' has been deleted`);
+    res.json(`Meal with the ID '${id}' has been deleted`);
   } catch (error) {
     throw error;
   }
 });
 
-// router.get("/", async (request, response) => {
-//   const maxPriceString = request.query.maxPrice
-//   const maxPrice = parseInt(maxPriceString)
-//   try{
-//     const getMaxPrice = await knex("meals").select("title", "price").where("price", maxPrice);
-//     response.json(getMaxPrice)
-//   } catch (error){
-//     throw error;
-//   }
-// })
-
-router.get("/", async (request, response) => {
+// Meals query
+router.get("/", async (req, res) => {
+  const { maxPrice, availableReservation, title, limit } = req.query;
   try {
-    const thePrice = await knex("meals")
-      .select("title", "price")
-      .where({ price: request.query.price });
-    response.json(thePrice);
+    if (req.url === "/") {
+      const allMeals = await knex("meals").select(
+        "id",
+        "title",
+        "description",
+        "price",
+        "max_reservation"
+      );
+      res.json(allMeals);
+    } else if (maxPrice) {
+      const cheapMeal = await knex("meals")
+        .select("id", "title", "price", "max_reservation")
+        .where("price", "<=", maxPrice);
+      res.json(cheapMeal);
+    } else if (availableReservation === "true") {
+      const reservation = await knex("meals")
+        .join("reservation", "meals.id", "=", "reservation.meal_id")
+        .select(
+          "meals.id",
+          "meals.title",
+          "meals.max_reservation",
+          "reservation.number_of_guests"
+        );
+      res.json(reservation);
+    } else if (title) {
+      const getTitle = await knex("meals")
+        .select("title", "description")
+        .where("title", "like", `%${title}%`);
+      res.json(getTitle);
+    } else if (limit) {
+      const limitMeal = await knex("meals")
+        .select("title", "description")
+        .limit(limit);
+      res.json(limitMeal);
+    } else {
+      res.send("Bad entry");
+    }
   } catch (error) {
     throw error;
   }
