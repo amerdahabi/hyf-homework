@@ -1,51 +1,49 @@
-console.log("hello");
-
 const apiKey = "15720594108c8eab2baccbd663bdb296";
 let input = document.querySelector(".input");
 let form = document.querySelector(".form");
 let lat;
 let long;
 
-form.addEventListener("submit", function(a) {
+form.addEventListener("submit", function (e) {
   if (!input.value) {
-    a.preventDefault();
+    e.preventDefault();
     fetchLocation();
   } else {
-    a.preventDefault();
+    e.preventDefault();
     const location = input.value;
     fetchCity(location);
   }
 });
 
 function fetchLocation() {
-  navigator.geolocation.getCurrentPosition(position => {
+  navigator.geolocation.getCurrentPosition((position) => {
     long = position.coords.longitude;
     lat = position.coords.latitude;
 
     let api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
     fetch(api)
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         renderData(data);
       });
   });
-};
+}
 
 function fetchCity(location) {
   let api = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
   fetch(api)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       console.log(data);
       renderData(data);
     });
-};
+}
 
 function getTime(unix) {
   let date = new Date(unix * 1000);
   let time = `${date.getHours()}:${date.getMinutes()}`;
   return time;
-};
+}
 
 function renderData(data) {
   let temperatureDescrition = document.querySelector(
@@ -70,4 +68,4 @@ function renderData(data) {
 
   let sunset = document.querySelector(".sunset");
   sunset.innerHTML = `<p>Sunset at ${getTime(data.sys.sunset)}<p/>`;
-};
+}
